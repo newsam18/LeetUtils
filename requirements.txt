@@ -1,0 +1,4 @@
+pytest
+more-itertools
+sortedcontainers
+networkx
