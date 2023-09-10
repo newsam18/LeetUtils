@@ -3,7 +3,7 @@ import operator
 import re
 import string
 from bisect import bisect_left, bisect_right
-from collections import Counter
+from collections import *
 from functools import *
 from heapq import *
 from itertools import *
@@ -12,6 +12,8 @@ from math import (ceil, comb, exp, gcd, inf, isqrt, lcm, log, log2, log10,
 from typing import *
 
 import pytest
+
+from .binary_tree import *
 
 
 class Solution:
@@ -35,8 +37,14 @@ fun = getattr(Solution(), functions[0][0])
     ((-3, 8,), {}, 5),
 ])
 def test(args, kwargs, want):
-    if isinstance(want, float):
-        assert fun(*args, **kwargs) == pytest.approx(want)
+    got = fun(*args, **kwargs)
+    if isinstance(got, float):
+        assert got == pytest.approx(want)
+    elif isinstance(got, TreeNode):
+        if isinstance(want, list):
+            assert bitree2list(got) == want
+        else:
+            assert got.val == want
     else:
         assert fun(*args, **kwargs) == want
 
