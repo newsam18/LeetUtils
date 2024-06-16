@@ -46,7 +46,7 @@ def test(args, kwargs, want):
         else:
             assert got.val == want
     else:
-        assert fun(*args, **kwargs) == want
+        assert got == want
 
 # if __name__=='__main__':
 #     print()
